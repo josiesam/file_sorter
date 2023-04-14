@@ -1,0 +1,68 @@
+# File Sorter
+
+## Introduction
+
+File Sorter is a command-line tool that sorts files by their types. It can be used to easily organize files in a given directory by grouping them into folders based on their file types, such as documents, images, audio files, videos, etc.
+
+File Sorter supports the following file types:
+
+* Documents: `.pdf`, `.doc`, `.docx`, `.txt`, `.rtf`
+* Spreadsheets: `.xls`, `.xlsx`, `.csv`
+* Presentations: `.ppt`, `.pptx`
+* Images: `.jpg`, `.jpeg`,`.png`, `.gif`, `.bmp`
+* Audio: `.mp3`, `.wav`, `.acc`, `.flac`
+* Video: `.mp4`, `.avi`, `.mov`, `.wmv`
+* Code: `.py`, `.java`, `.c`, `.cpp`, `.html`, `.css`, `.js` 
+
+By default, File Sorter sorts files in the user's home directory and saves the sorted files in a new folder called "Sorter" in the same directory. However, the user can also specify a different directory to sort and/or exclude certain directories from sorting.
+
+## Usage
+To use File Sorter, run the following command in the terminal:
+
+```bash 
+python file_sorter.py [-h] [-b BASE] [-d DESTINATION] [-e EXCLUDE] [-p | -c | -m]
+```
+
+## Arguments
+
+* `-h, --help`: Show the help message and exit.
+* `-b BASE, --base BASE`: Root directory from which to start sorting. Default is the user's home directory.
+* `-d DESTINATION, --destination DESTINATION`: Directory in which files will be sorted. Default is a new folder called "Sorter" in the same directory as the source file.
+* `-e EXCLUDE, --exclude EXCLUDE`:  Directory to be excluded from sorter.
+* `-r RECURSIVE, --recursive RECURSIVE`: Wheather or not to sort in subdirectory of base.
+
+* `-p, --print`: Print files found on their type.
+* `-c, --copy`: Copy files found and sort them in destination according to type.
+* `-m, --move`: Move files found and sort them in destination according to type.
+
+## Examples
+
+To sort files in the user's home directory and print the files found on their type:
+
+```bash
+python file_sorter.py -p
+```
+
+To sort files in a specific directory and move the files to the new "Sorter" folder:
+
+```bash
+python file_sorter.py -b /path/to/directory -m
+```
+
+To sort files in a specific directory and copy the files to a different folder:
+
+```bash
+python file_sorter.py -b /path/to/directory -d /path/to/destination -c
+```
+
+To sort files in a specific directory recursively and copy the files to a different folder:
+
+```bash
+python file_sorter.py -b /path/to/directory -d /path/to/destination -r -c 
+```
+
+To exclude a directory from sorting:
+
+```bash
+python file_sorter.py -e /path/to/excluded/directory -m
+```
